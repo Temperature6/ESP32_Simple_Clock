@@ -1,0 +1,141 @@
+{
+  "uuid": "d755ec10bcfb961ee8bd0bfbd9e5de3f",
+  "path": "Offline/ESP32_Clock_Easy",
+  "name": "ESP32_Clock_Easy",
+  "content": "使用ESP32开发板的时钟",
+  "created_at": "2022-12-27 20:54:57",
+  "updated_at": "2023-01-09 18:42:55",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "d6dd21527572938f76d1caab6f3f6bbf",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "815aa05d622d482087834ee050c9ff15": 2,
+        "0b20493762aa46eaab9651966a080c6c": 1,
+        "52ea4046fcac48a9af74c102a9fc4f6e": 1,
+        "ba1f207f2c0447edbd5beb657b435022": 1,
+        "bacf5553da266925c44144ce5fdc0a97": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "Header-Female-2.54_1x15",
+          2,
+          "HDR-TH_15P-P2.54-V-F-1",
+          "ESP32_LEFT,ESP32_RIGHT",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "Ckmtw(灿科盟)",
+            "BOM_Manufacturer Part": "B-2200S15P-A120",
+            "BOM_Supplier Part": "C124408",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "66ae7d7fa4f64e7db3682b257b3dcf46",
+            "uuid": "815aa05d622d482087834ee050c9ff15"
+          }
+        ],
+        [
+          "LED-0805_G",
+          1,
+          "LED0805_GREEN",
+          "LED1",
+          {
+            "BOM_Manufacturer": "国星光电",
+            "BOM_Manufacturer Part": "NCD0805G1",
+            "BOM_Supplier Part": "C84260",
+            "BOM_Supplier": "",
+            "puuid": "df7b9c1c92a741e3a4e90f224547567e",
+            "uuid": "ba1f207f2c0447edbd5beb657b435022"
+          }
+        ],
+        [
+          "PTS645SK50-2LFS",
+          1,
+          "KEY-TH_4P-L6.0-W6.0-P4.50-LS6.50",
+          "SW1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C2689653",
+            "BOM_Manufacturer": "C&K",
+            "BOM_Manufacturer Part": "PTS645SK50-2LFS",
+            "puuid": "6713d423694b425cb68ce31ba237338f",
+            "uuid": "52ea4046fcac48a9af74c102a9fc4f6e"
+          }
+        ],
+        [
+          "Header-Female-2.54_1x8",
+          2,
+          "HDR-TH_8P-P2.54-V-F-1",
+          "TFT_BLUE,TFT_RED",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Manufacturer": "BOOMELE(博穆精密)",
+            "BOM_Manufacturer Part": "2.54-1*8P母环保",
+            "BOM_Supplier Part": "C27438",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "366e1b46b2ba4833900571d9613df11d",
+            "uuid": "bacf5553da266925c44144ce5fdc0a97"
+          }
+        ],
+        [
+          "DHT11",
+          1,
+          "SENSOR-TH_DHT11",
+          "U1",
+          {
+            "BOM_Supplier": "LCSC",
+            "BOM_Supplier Part": "C117051",
+            "BOM_Manufacturer": "广州奥松",
+            "BOM_Manufacturer Part": "DHT11",
+            "BOM_JLCPCB Part Class": "Extended Part",
+            "puuid": "08631d89f1134ac8bb73c3bef2888e81",
+            "uuid": "0b20493762aa46eaab9651966a080c6c"
+          }
+        ]
+      ],
+      "updateTime": 1673244041,
+      "createTime": 1672145697,
+      "histories": [],
+      "created_at": "2022-12-27 20:54:57",
+      "updated_at": "2023-01-09 14:00:41"
+    },
+    {
+      "uuid": "f60fc1707e09f432d5aaaca6ce9a71da",
+      "puuid": "d755ec10bcfb961ee8bd0bfbd9e5de3f",
+      "title": "PCB_ESP32_Clock_Easy_V2",
+      "filename": "PCB_ESP32_Clock_Easy_V2.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "66ae7d7fa4f64e7db3682b257b3dcf46": 2,
+        "df7b9c1c92a741e3a4e90f224547567e": 1,
+        "6713d423694b425cb68ce31ba237338f": 1,
+        "08631d89f1134ac8bb73c3bef2888e81": 1,
+        "366e1b46b2ba4833900571d9613df11d": 2
+      },
+      "BOM": [],
+      "updateTime": 1673260975,
+      "createTime": 1672238144,
+      "histories": [],
+      "created_at": "2022-12-28 22:35:44",
+      "updated_at": "2023-01-09 18:42:55"
+    }
+  ],
+  "sort": [],
+  "title": "ESP32_Clock_Easy",
+  "foldername": "ESP32_Clock_Easy",
+  "schfilename": "ESP32_Clock_Easy.json",
+  "schfilemtime": 1673244041652
+}
