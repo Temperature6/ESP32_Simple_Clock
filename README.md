@@ -16,6 +16,8 @@
 
 ⭐自动背光控制：可设置从何时开始打开背光，何时关闭背光，默认为7：00~23：30打开背光
 
+⭐切换环境数据来源：点击按键可以切换板载LED的状态，长按1s可以切换环境状态数据的来源（DHT传感器或者Web）
+
 ### 参考
 
 城市列表：[城市列表 | 心知天气文档 (seniverse.com)](https://docs.seniverse.com/product/data/city.html)
@@ -31,6 +33,7 @@ Adafruit Unified Sensor：[adafruit/Adafruit_Sensor: Common sensor library (gith
 ### 版本
 
 20230110-v1.0
+20230112-v1.1:修复了天气文本内容过长会覆盖其他位置的Bug，增加了看门狗，防止死机，点击按键可以切换板载LED的状态，长按1s可以切换环境状态数据的来源（DHT传感器或者Web）
 
 
 
