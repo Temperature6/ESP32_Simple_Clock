@@ -4,7 +4,6 @@
 String weat_api = "/v3/weather/daily.json?key=";
 const char *host = "api.seniverse.com";
 const char *privateKey = "key";
-//const char *city = "Shijiazhuang";
 const char *language = "en";
 char EOH[] = "\r\n\r\n"; //End Of Headers
 
@@ -33,6 +32,11 @@ uint8_t Connect(String* ssid, String* password)
     }
     Connected = 0;
     return 0;
+}
+
+uint8_t isConnected()
+{
+    return WiFi.status() == WL_CONNECTED;
 }
 
 long long GetTimeStamp()

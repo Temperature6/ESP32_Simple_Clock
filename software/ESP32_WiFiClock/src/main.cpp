@@ -14,9 +14,9 @@
 #include "ScheduledTask.h"
 
 //宏定义
-#define TEXT_WIDTH(c, s) (6 * s * c)
-#define TEXT_HEIGHT(c, s) (8 * s * c)
-#define SECOND_DAY(h, m) (h * 3600 + m * 60)
+#define TEXT_WIDTH(c, s)        (6 * s * c)
+#define TEXT_HEIGHT(c, s)       (8 * s * c)
+#define SECOND_DAY(h, m)        (h * 3600 + m * 60)
 
 #define BG_COLOR                ST7735_BLACK    //界面背景色
 #define BLK_PIN                 4               //背光控制引脚
@@ -26,12 +26,12 @@
 #define PREF_DATA_SOURCE        "dataSource"    //环境数据来源
 
 //宏定义-配置
-#define BLK_CTRL //自动背光控制
+#define BLK_CTRL                                //自动背光控制
 
 #ifdef BLK_CTRL
 
 #define BLK_ON_SINCE_H          7               //07:00后开启背光
-#define BLK_ON_SINCE_M          00              //
+#define BLK_ON_SINCE_M          0               //
 #define BLK_OFF_SINCE_H         23              //23:30后关闭背光
 #define BLK_OFF_SINCE_M         30              //
 
@@ -51,7 +51,7 @@ enum STATE {
 };
 //全局变量
 String ssid = "ssid";
-String pwd = "pwd";
+String pwd = "password";
 
 Weather_data weat_data;             //天气数据
 Preferences pref;                   //存储数据
@@ -62,8 +62,8 @@ time_t time_stamp;                  //当前时间戳(s)
 volatile uint8_t time_changed = 0;  //时间改变标志
 struct tm* time_s;                  //时间格式结构体
 
-uint8_t curblk_state = ON;          //当前背光状态
 uint8_t onBoardLED = 0;             //板载LED状态
+uint8_t BLK_state = ON;             //当前背光状态
 
 const int wdtTimeout = 30;          //看门狗溢出时间(s)
 hw_timer_t *wdtTimer = NULL;        //看门狗定时器
@@ -80,7 +80,7 @@ void EveryMin();
 void EveryHour();
 void UpdateTime(time_t t_s);
 void BLK(uint8_t state);
-void AutoBLKCheck();
+void AutoBLKCheck(uint8_t reset_when_on = 0);
 void feedDog();
 void ARDUINO_ISR_ATTR resetModule();
 void printEnvpIcon();
@@ -187,6 +187,7 @@ void loop() {
       onBoardLED = !onBoardLED;
       pref.putInt(PREF_ONBOARD_LED_STATE, onBoardLED);
       digitalWrite(2, onBoardLED);
+      AutoBLKCheck();
     }
     else if (pressed >= 1000)
     {
@@ -205,7 +206,7 @@ void ChangeTime()
 
 void EveryMin()
 {
-  AutoBLKCheck();
+  AutoBLKCheck(1);
   //刷新分钟
   tft.fillRect(0, 2, TEXT_WIDTH(5, 4), TEXT_HEIGHT(1, 4), BG_COLOR);
   tft.setTextSize(4);
@@ -221,6 +222,14 @@ void EveryMin()
 
 void EveryHour()
 {
+  if (!isConnected())
+  {
+    Connect(&ssid, &pwd);
+
+    if (!isConnected())
+      return;
+  }
+
   memset(&weat_data, 0, sizeof(Weather_data));
   GetWeather(&weat_data);
   UpdateTime((time_t)GetTimeStamp());
@@ -297,12 +306,19 @@ void UpdateTime(time_t t_s)
 void BLK(uint8_t state)
 {
   if (state)
+  {
+    BLK_state = ON;
     digitalWrite(BLK_PIN, HIGH);
+  }
   else
+  {
+    BLK_state = OFF;
     digitalWrite(BLK_PIN, LOW);
+  }
+    
 }
 
-void AutoBLKCheck()
+void AutoBLKCheck(uint8_t reset_when_on)
 {
 #ifdef BLK_CTRL
   //自动背光
@@ -311,10 +327,21 @@ void AutoBLKCheck()
   if (SECOND_DAY(BLK_ON_SINCE_H, BLK_ON_SINCE_M) <= sec_day_now &&
       sec_day_now <= SECOND_DAY(BLK_OFF_SINCE_H, BLK_OFF_SINCE_M))
   {
+    if (BLK_state == ON)
+      return;
+
+    if (reset_when_on)
+    {
+      Log("BLK Reaet");
+      esp_restart();
+    }
     BLK(ON);
   }
   else
   {
+    if (BLK_state == OFF)
+      return;
+
     BLK(OFF);
   }
 #endif //BLK_CTRL

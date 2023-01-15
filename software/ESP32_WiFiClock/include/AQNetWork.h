@@ -22,6 +22,7 @@ typedef struct WEATHER_DATA
 
 uint8_t Connect(String* ssid, String* password);
 long long GetTimeStamp();
-void GetWeather(Weather_data* w_data ,String city = "Shijiazhuang");
+void GetWeather(Weather_data* w_data ,String city = "city");
+uint8_t isConnected();
 
 #endif //_AQNETWORK_H_

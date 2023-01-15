@@ -1,0 +1,65 @@
+{
+    "results": [
+        {
+            "location": {
+                "id": "WWC2MYYCM6J5",
+                "name": "Shijiazhuang",
+                "country": "CN",
+                "path": "Shijiazhuang,Shijiazhuang,Hebei,China",
+                "timezone": "Asia/Shanghai",
+                "timezone_offset": "+08:00"
+            },
+            "daily": [
+                {
+                    "date": "2023-01-12",
+                    "text_day": "Light rain",
+                    "code_day": "13",
+                    "text_night": "Overcast",
+                    "code_night": "9",
+                    "high": "5",
+                    "low": "-2",
+                    "rainfall": "5.40",
+                    "precip": "0.99",
+                    "wind_direction": "N",
+                    "wind_direction_degree": "0",
+                    "wind_speed": "8.4",
+                    "wind_scale": "2",
+                    "humidity": "79"
+                },
+                {
+                    "date": "2023-01-13",
+                    "text_day": "Sleet",
+                    "code_day": "20",
+                    "text_night": "Moderate snow",
+                    "code_night": "23",
+                    "high": "8",
+                    "low": "-3",
+                    "rainfall": "5.51",
+                    "precip": "1.00",
+                    "wind_direction": "NE",
+                    "wind_direction_degree": "45",
+                    "wind_speed": "23.4",
+                    "wind_scale": "4",
+                    "humidity": "91"
+                },
+                {
+                    "date": "2023-01-14",
+                    "text_day": "Light snow",
+                    "code_day": "22",
+                    "text_night": "Cloudy",
+                    "code_night": "4",
+                    "high": "-1",
+                    "low": "-7",
+                    "rainfall": "0.68",
+                    "precip": "0.62",
+                    "wind_direction": "NE",
+                    "wind_direction_degree": "45",
+                    "wind_speed": "3.0",
+                    "wind_scale": "1",
+                    "humidity": "93"
+                }
+            ],
+            "last_update": "2023-01-12T08:00:00+08:00"
+        }
+    ]
+}
